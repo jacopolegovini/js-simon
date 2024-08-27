@@ -17,14 +17,17 @@ const form = document.querySelector('form');
 const userInputs = document.querySelectorAll('.user-number');
 const buttonElement = document.querySelector('button');
 const userInputsId = document.getElementById('user-number');
-
+const resultElement = document.querySelector('p');
 
 
 // Crea le variabili necessarie
 const difficulty = 99;
-let second = 1;
+let second = 2;
 let randomNumbers = []
 let userInput = 0;
+let result = 0;
+let numberWord = 'numeri'
+let sentence = 'Sono stati individuati'
 
 
 // Crea le funzioni necessarie
@@ -78,17 +81,7 @@ const interval = setInterval(() => {
         randomNumbersElement.classList.add('d-none');
         secondElement.classList.add('d-none')
         form.classList.remove('d-none')
-
-        // Controlla se l'input dello user è lo stesso del numero random
-        // buttonElement.addEventListener('click', function(){
-        //     for (let i = 0; i < 5; i++) {
-        //         if (randomNumbers.includes(userInput[i])) {
-        //         console.log('true');
-        //         } else {
-        //             console.log('false');
-        //         }
-        //     }
-        // })
+        form.classList.add('form-flex')
 
     } else {
         console.log(second--)
@@ -106,10 +99,18 @@ buttonElement.addEventListener('click', function(event){
 
         if (randomNumbers.includes(userInput)) {
             console.log('true');
+            result++;
           } else {
             console.log('false');
           }
     }
+
+    // Stampa un messaggio con quanti numeri sono stati individuati
+    if (result === 1) {
+        numberWord = 'numero'
+        sentence = 'È stato individuato'
+    }
+    resultElement.innerHTML = `${sentence} ${result} ${numberWord}.<br> `
 })
 
 
