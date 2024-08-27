@@ -22,7 +22,7 @@ const resultElement = document.querySelector('p');
 
 // Crea le variabili necessarie
 const difficulty = 99;
-let second = 2;
+let second = 10;
 let randomNumbers = []
 let userInput = 0;
 let result = 0;
