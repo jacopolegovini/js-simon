@@ -20,11 +20,12 @@ const numberInput = document.querySelectorAll('.number');
 // Crea le variabili necessarie
 const difficulty = 99;
 let second = 5;
+let randomNumbers = []
+let userNumber = [4, 2, 5, 7, 6];
 
-
+// Crea le funzioni necessarie
 // Crea la funzione per trovare tot numeri random
-const generateRandomNumber = (difficulty) => {
-    let randomNumbers = []
+const generateRandomNumber = difficulty => {
     for (let i = 0; i < 5; i++) {
         let randomNumber = Math.floor((Math.random() * difficulty) + 1);
         if (randomNumbers.includes(randomNumber)) {
@@ -36,6 +37,22 @@ const generateRandomNumber = (difficulty) => {
     console.log(randomNumbers)
 }
 
+// Crea la funzione per verificare che i numeri inseriti dall'utente siano gli stessi di quelli prodotti randomicamente
+const checkNumber = (randomNumbers, userNumber) => {
+    console.log(randomNumbers)
+    for (let i = 0; i < 5; i++) {
+        if (randomNumbers.includes(userNumber[i])) {
+        console.log('true');
+      } else {
+        console.log('false');
+      }
+    }
+}
+
+generateRandomNumber(difficulty)
+checkNumber(randomNumbers, userNumber)
+
+
 
 // Fai partire il timer di tot secondi
 const interval = setInterval(() => {
@@ -43,7 +60,19 @@ const interval = setInterval(() => {
         clearInterval(interval);
         randomNumbersElement.classList.add('d-none');
         secondElement.classList.add('d-none')
+        form.classList.remove('d-none')
     }
     console.log(second--)
     secondElement.innerHTML = second;
 }, 1000)
+
+
+
+// const test = [1, 5, 9, 8, 3];
+// const test2 = [4, 2, 5, 7, 6];
+
+// for (let i = 0; i < 5; i++) {
+//     test.includes(5)
+//     console.log(test[i])
+  
+// }
