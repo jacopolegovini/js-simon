@@ -10,6 +10,8 @@
 
 
 // Prendi gli elementi dal DOM
+const secondElement = document.querySelector('.second');
+const randomNumbersElement = document.querySelector('.random-numbers');
 const randomNumberElement = document.querySelectorAll('.random-number');
 const form = document.querySelector('form');
 const numberInput = document.querySelectorAll('.number');
@@ -17,6 +19,7 @@ const numberInput = document.querySelectorAll('.number');
 
 // Crea le variabili necessarie
 const difficulty = 99;
+let second = 5;
 
 
 // Crea la funzione per trovare tot numeri random
@@ -33,4 +36,14 @@ const generateRandomNumber = (difficulty) => {
     console.log(randomNumbers)
 }
 
-generateRandomNumber(difficulty)
+
+// Fai partire il timer di tot secondi
+const interval = setInterval(() => {
+    if (second === 0) {
+        clearInterval(interval);
+        randomNumbersElement.classList.add('d-none');
+        secondElement.classList.add('d-none')
+    }
+    console.log(second--)
+    secondElement.innerHTML = second;
+}, 1000)

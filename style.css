@@ -12,6 +12,14 @@ h1 {
 }
 
 
+/* Seconds */
+.second {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+
 /* Numbers */
 .random-numbers {
     text-align: center;
