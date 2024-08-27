@@ -12,7 +12,6 @@
 // Prendi gli elementi dal DOM
 const secondElement = document.querySelector('.second');
 const randomNumbersElement = document.querySelector('.random-numbers');
-const randomNumberElement = document.querySelectorAll('.random-number');
 const form = document.querySelector('form');
 const userInputs = document.querySelectorAll('.user-number');
 const buttonElement = document.querySelector('button');
@@ -43,6 +42,7 @@ const generateRandomNumber = difficulty => {
         }
     }
     console.log(randomNumbers)
+    return randomNumbers;
 }
 
 // Crea la funzione per verificare che i numeri inseriti dall'utente siano gli stessi di quelli prodotti randomicamente
@@ -62,6 +62,13 @@ const checkNumber = (randomNumbers, userInputs) => {
 
 
 
+// Crea i numeri random
+generateRandomNumber(difficulty)
+
+// Stampa in pagina i numeri random con un ciclo
+for (let i = 0; i < 5; i++) {
+    randomNumbersElement.innerHTML += `<div class="random-number">${randomNumbers[i]}</div>`
+}
 
 // Fai partire il timer di tot secondi
 const interval = setInterval(() => {
@@ -72,11 +79,6 @@ const interval = setInterval(() => {
 
         // Blocca il timer
         clearInterval(interval);
-
-        // Crea i numeri random
-        // generateRandomNumber(difficulty);
-        generateRandomNumber(difficulty)
-        // randomNumbers = [1, 5, 9, 8, 3]
 
         // Aggiungi e rimuovi le classi necessarie
         randomNumbersElement.classList.add('d-none');
@@ -98,6 +100,11 @@ buttonElement.addEventListener('click', function(event){
     // Controlla se l'input inserito è uguale al randomnumber
     for (let i = 0; i < userInputs.length; i++) {
         userInput = parseInt(userInputs[i].value)
+        
+        // TODO Validazione
+
+
+        console.log(randomNumbers)
 
         if (randomNumbers.includes(userInput)) {
             console.log('true');
