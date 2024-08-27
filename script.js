@@ -18,6 +18,7 @@ const userInputs = document.querySelectorAll('.user-number');
 const buttonElement = document.querySelector('button');
 const userInputsId = document.getElementById('user-number');
 const resultElement = document.querySelector('p');
+const h1Element = document.querySelector('h1');
 
 
 // Crea le variabili necessarie
@@ -79,9 +80,10 @@ const interval = setInterval(() => {
 
         // Aggiungi e rimuovi le classi necessarie
         randomNumbersElement.classList.add('d-none');
-        secondElement.classList.add('d-none')
-        form.classList.remove('d-none')
-        form.classList.add('form-flex')
+        secondElement.classList.add('d-none');
+        form.classList.remove('d-none');
+        form.classList.add('form-flex');
+        h1Element.classList.add('d-none');
 
     } else {
         console.log(second--)
