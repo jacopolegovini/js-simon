@@ -1,0 +1,21 @@
+/* General */
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+/* Numbers */
+.random-numbers {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
