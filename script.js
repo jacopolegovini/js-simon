@@ -13,11 +13,11 @@
 const secondElement = document.querySelector('.second');
 const randomNumbersElement = document.querySelector('.random-numbers');
 const form = document.querySelector('form');
-const userInputs = document.querySelectorAll('.user-number');
 const buttonElement = document.querySelector('button');
 const userInputsId = document.getElementById('user-number');
 const resultElement = document.querySelector('p');
 const h1Element = document.querySelector('h1');
+const inputForm = document.querySelector('.input-form');
 
 
 // Crea le variabili necessarie
@@ -61,14 +61,24 @@ const checkNumber = (randomNumbers, userInputs) => {
 }
 
 
+// Genera gli input del form
+for (let i = 0; i < 5; i++) {
+    inputForm.innerHTML += `<input type="number" class="user-number" value="" required></input>`;
+}
+
+// Richiama l'elemento appena creato
+const userInputs = document.querySelectorAll('.user-number');
+
 
 // Crea i numeri random
 generateRandomNumber(difficulty)
+
 
 // Stampa in pagina i numeri random con un ciclo
 for (let i = 0; i < 5; i++) {
     randomNumbersElement.innerHTML += `<div class="random-number">${randomNumbers[i]}</div>`
 }
+
 
 // Fai partire il timer di tot secondi
 const interval = setInterval(() => {
@@ -102,7 +112,7 @@ buttonElement.addEventListener('click', function(event){
         userInput = parseInt(userInputs[i].value)
         
         // TODO Validazione
-
+        // ...
 
         console.log(randomNumbers)
 
